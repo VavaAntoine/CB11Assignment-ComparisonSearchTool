@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>booking</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <!-- Datetimepicker  -->
+  <link rel="stylesheet" href="lib/bootstrap-datetimepicker.min.css">
+  <!-- Autocomplete ...custom build https://stackoverflow.com/questions/28285813/style-jquery-autocomplete-in-a-bootstrap-input-field -->
+  <!-- Application css -->
+  <link rel="stylesheet" href="lib/app.css">
+</head>
+
+<body>
+  <form class="search-form js-form">
+  <section class="header">
+    <div class="container">
+      
+
+        <div class="form-row search-row pt-2">
+
+          <div class="col-10">
+            <div class="form-group" >
+              <label class="sr-only" for="search-bar">Search</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text js-search-bar"><i class="fa fa-search" aria-hidden="true"></i></div>
+                </div>
+                <input type="text" class="form-control js-autocomplete" id="search-bar" placeholder="Search" autocomplete="off">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <button type="submit" class="btn btn-primary btn-block search-button js-btn">Search</button>
+          </div>
+
+        </div>
+
+        <div class="form-row date-room">
+
+          <div class="col-4">
+            <div class="form-group">
+              <div class="input-group date datetimepicker">
+                <input type="text" class="form-control check-in" placeholder="check-in">
+                <div class="input-group-addon input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="form-group">
+              <div class="input-group date datetimepicker">
+                <input type="text" class="form-control check-out" placeholder="check-out">
+                <div class="input-group-addon input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4">
+            <select class="custom-select js-roomtype" id="roomtype">
+              <option value="all" selected>All</option>            
+            </select>
+          </div>
+
+        </div>
+
+        <div class="form-row range-type-rating">
+
+          <div class="col-4 price-slider">
+            <div class="form-group">
+              <div>
+                <label for="formControlRange">Price</label>
+                <div class="float-right">max. <i class="fas fa-euro-sign fa-xs"> &nbsp;</i><span class="js-slider-value"></span></div>
+              </div>
+              <input type="range" min="1" class="form-control-range js-price-slider" id="formControlRange">
+            </div>
+          </div>
+
+          <div class="col-2">
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Property type</label>
+              <select class="form-control js-rating-stars" id="exampleFormControlSelect1">
+                <option value="0" selected>All</option>
+                <option value="1">1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <div class="form-group">
+              <label for="exampleFormControlSelect2">Guest Rating</label>
+              <select class="form-control js-guest-rating" id="exampleFormControlSelect2">
+                <option value="All" selected>All</option>
+                <option value="Okay">0-2 Okay</option>
+                <option value="Fair">2-6 Fair</option>
+                <option value="Good">6-7 Good</option>
+                <option value="Very Good">7-8.5 Very Good</option>
+                <option value="Excellent">8.5-10 Excellent</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <label for="hotel-location">Hotel location</label>
+            <select class="custom-select js-hotel-location" id="hotel-location">
+              <option id="hotel-location-selected" selected>All</option>
+            </select>            
+          </div>
+
+          <div class="col-2">
+            <div class="form-group">
+              <label for="exampleFormControlSelect3">Core Filters</label>
+              <select class="form-control" id="exampleFormControlSelect3">
+                <option>All</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container">
+
+      <div class="form-row pt-2">
+
+        <div class="col-3 pb-2 img-wrapper" id="map">
+          <!-- Button to Open the Modal -->
+            <img class="img-responsive" alt="img-map" style="width:100%; height:40px; object-position: 50% 50%; object-fit: fill;" src="img/map.PNG">
+            <div class="img-overlay">
+              <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#myModal">View Map</button>
+            </div>
+
+          <!-- The Modal -->
+          <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+              
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Navigate & Explore</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <iframe class="iframe" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d83998.94722687619!2d2.277019841665155!3d48.8588377391234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sgr!4v1554987763683!5m2!1sen!2sgr" 
+                   allowfullscreen></iframe>                
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+
+        <div class="col-3" id="space">
+        </div>
+
+        <div class="col-6">
+
+            <div class="form-group row">
+
+              <label for="sort-by" class="col-4 col-form-label">Sort by :</label>
+
+              <div class="col-8">
+                <select class="form-control js-sort" id="sort-by">
+                  <option value="All">Our recommendations</option> 
+                </select>
+              </div> 
+
+            </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </section>
+</form>
+
+      <!-- hotel results -->
+
+  <section class="results">
+    <div class="container js-search-results" id="search-results"></div>
+    
+  </section>
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+  <!-- Autocomplete     https://api.jqueryui.com/autocomplete/ -->
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <!-- datetimepicker -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+  <script src="lib/bootstrap-datetimepicker.min.js"></script>
+
+  <!-- Application js -->
+  <script src="lib/app.js"></script>
+  <!-- <script src="lib/app2.js"></script> -->
+</body>
+
+</html>
