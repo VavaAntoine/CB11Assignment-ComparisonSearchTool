@@ -18,3 +18,5 @@ The fulfilled requirements are as follows:
 12. A description of the hotel from the objects within json file per entry as shown above.
 
 **Implemented technologies**: HTML, CSS / Bootstrap Framework, JavaScript / jQuery
+
+https://vavaantoine.github.io/CB11Assignment-ComparisonSearchTool/
