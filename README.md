@@ -1,6 +1,8 @@
 # CB11Assignment-ComparisonSearchTool
 Hotel marketplace interface. Implementation  of comparison  search tool.
 
+The fulfilled requirements are as follows:
+
 1. A search bar that you can write within any text with autocomplete capability which returns the objects from entries.city.
 2. The button shows the results as different entries that come from the entries objects.
 3. A display that shows Check-in / Check-out dates. Can you make it to show a calendar? 
