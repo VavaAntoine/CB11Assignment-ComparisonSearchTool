@@ -1,7 +1,7 @@
 # CB11Assignment-ComparisonSearchTool
 Hotel marketplace interface. Implementation  of comparison  search tool.
 
-The fulfilled requirements are as follows:
+The requirements that have been fulfilled are the following:
 
 1. A **search bar** that you can write within any text with **autocomplete capability** which returns the objects from entries.city.
 2. The button shows the results as different entries that come from the entries objects.
